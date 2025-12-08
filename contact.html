@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>URBAN RP - Nous contacter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="body-gradient">
+
+<header class="nav-wrapper">
+    <nav class="nav">
+        <div class="nav-logo">
+            <a href="index.html">
+                <span class="logo-badge">UR</span>
+                <span class="logo-text">URBAN RP</span>
+            </a>
+        </div>
+
+        <input type="checkbox" id="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Accueil</a></li>
+            <li><a href="reglement.html" class="nav-link">Règlement</a></li>
+            <li><a href="contact.html" class="nav-link active">Nous contacter</a></li>
+        </ul>
+
+        <div class="nav-cta">
+            <a href="steam://connect/45.145.166.78:27015" class="btn btn-primary-glow">
+                <i class="fab fa-steam"></i> Rejoindre
+            </a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="section">
+        <div class="section-header">
+            <p class="section-tag">Contact</p>
+            <h2 class="section-title">Nous contacter</h2>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Support & staff</h3>
+                <p>Pour toute question, plainte ou suggestion, le Discord sera le point de contact principal.</p>
+                <p class="contact-note">Vous pourrez y ouvrir des tickets, parler avec le staff et suivre les annonces.</p>
+            </div>
+
+            <div class="contact-card contact-discord-card">
+                <div class="discord-logo-circle big">
+                    <i class="fab fa-discord"></i>
+                </div>
+                <h3>Serveur Discord</h3>
+                <p class="discord-placeholder">Le serveur Discord URBAN RP n'est pas encore créé. Le lien apparaîtra ici.</p>
+                <a href="#" class="btn btn-disabled" aria-disabled="true">
+                    <i class="fab fa-discord"></i> Lien à venir
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <p class="footer-text">URBAN RP • DarkRP semi-serious</p>
+    </div>
+</footer>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<script>
+    document.body.classList.add('page-enter');
+    window.addEventListener('load', () => {
+        document.body.classList.add('page-enter-active');
+    });
+
+    document.querySelectorAll('a[href]').forEach(link => {
+        const url = new URL(link.href, window.location.href);
+        if (url.origin === window.location.origin) {
+            link.addEventListener('click', (e) => {
+                if (e.button === 1 || e.ctrlKey || e.metaKey) return;
+                if (link.getAttribute('href').startsWith('steam://')) return;
+                e.preventDefault();
+                const href = link.href;
+                document.body.classList.add('page-leave');
+                setTimeout(() => { window.location.href = href; }, 350);
+            });
+        }
+    });
+
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorRing = document.querySelector('.cursor-ring');
+
+    window.addEventListener('mousemove', (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+        cursorDot.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        cursorRing.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    });
+
+    const hoverTargets = document.querySelectorAll('a, button, .btn');
+    hoverTargets.forEach(el => {
+        el.addEventListener('mouseenter', () => cursorRing.classList.add('cursor-ring-hover'));
+        el.addEventListener('mouseleave', () => cursorRing.classList.remove('cursor-ring-hover'));
+    });
+</script>
+
+</body>
+</html>
