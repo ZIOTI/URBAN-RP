@@ -390,6 +390,16 @@ body {
     background: linear-gradient(90deg, transparent, rgba(0, 225, 255, 0.7), transparent);
 }
 
+.hero-card-btn {
+    margin-top: 0.6rem;
+    align-self: flex-start;
+    justify-content: center;
+    padding: 0.30rem 1.05rem !important; /* force la taille de la capsule */
+    font-size: 0.78rem;
+    border-radius: 999px;
+}
+
+
 /* SECTIONS */
 .section {
     max-width: 1200px;
