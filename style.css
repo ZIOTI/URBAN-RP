@@ -813,6 +813,70 @@ body {
     margin-top: 0.3rem;
 }
 
+/* COLLECTION STEAM */
+.collection-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.collection-intro {
+    font-size: 0.95rem;
+    color: #d5d9ff;
+    margin-bottom: 1.5rem;
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem;
+    margin-bottom: 1.8rem;
+}
+
+.collection-card {
+    background: rgba(5, 9, 32, 0.96);
+    border-radius: 18px;
+    padding: 1.2rem 1.3rem;
+    border: 1px solid rgba(0, 225, 255, 0.18);
+}
+
+.collection-card h3 {
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
+}
+
+.collection-card ul {
+    padding-left: 1rem;
+    font-size: 0.9rem;
+    color: #c9cdf5;
+}
+
+.collection-card ul li {
+    margin-bottom: 0.3rem;
+}
+
+.collection-card p {
+    font-size: 0.9rem;
+    color: #c9cdf5;
+}
+
+.collection-link-box {
+    background: radial-gradient(circle at top left, rgba(0, 225, 255, 0.18), rgba(5, 9, 32, 0.98));
+    border-radius: 18px;
+    padding: 1.1rem 1.3rem;
+    border: 1px solid rgba(0, 225, 255, 0.4);
+    text-align: center;
+}
+
+.collection-link-text {
+    font-size: 0.9rem;
+    color: #dde0ff;
+    margin-bottom: 0.7rem;
+}
+
+.collection-link-btn {
+    justify-content: center;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
     .hero {
