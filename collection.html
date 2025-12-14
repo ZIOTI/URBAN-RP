@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>URBAN RP - Collection Steam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="body-gradient">
+
+<header class="nav-wrapper">
+    <nav class="nav">
+        <div class="nav-logo">
+            <a href="index.html">
+                <span class="logo-badge">UR</span>
+                <span class="logo-text">URBAN RP</span>
+            </a>
+        </div>
+
+        <input type="checkbox" id="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Accueil</a></li>
+            <li><a href="reglement.html" class="nav-link">Règlement</a></li>
+            <li><a href="contact.html" class="nav-link">Nous contacter</a></li>
+            <li><a href="collection.html" class="nav-link active">Collection</a></li>
+        </ul>
+
+        <div class="nav-cta">
+            <a href="steam://connect/45.145.166.78:27015" class="btn btn-primary-glow">
+                <i class="fab fa-steam"></i> Rejoindre
+            </a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="section">
+        <div class="section-header">
+            <p class="section-tag">Addons</p>
+            <h2 class="section-title">Collection Steam du serveur</h2>
+        </div>
+
+        <div class="collection-wrapper">
+            <p class="collection-intro">
+                Bienvenue sur la collection officielle des addons utilisés par le serveur DarkRP URBAN RP.
+                Cette collection regroupe tous les contenus nécessaires pour rejoindre le serveur sans erreurs
+                et profiter de l’expérience complète prévue par l’équipe.
+            </p>
+
+            <div class="collection-grid">
+                <div class="collection-card">
+                    <h3>✅ Contenu de la collection</h3>
+                    <ul>
+                        <li>Addons essentiels DarkRP</li>
+                        <li>Armes & équipements</li>
+                        <li>Véhicules optimisés</li>
+                        <li>HUD / interfaces</li>
+                        <li>Métiers, scripts et fonctionnalités personnalisées</li>
+                        <li>Textures et modèles nécessaires au bon fonctionnement du serveur</li>
+                    </ul>
+                </div>
+
+                <div class="collection-card">
+                    <h3>🎯 Pourquoi vous abonner ?</h3>
+                    <ul>
+                        <li>Téléchargement automatique de tous les addons du serveur</li>
+                        <li>Réduction des erreurs LUA et des textures manquantes</li>
+                        <li>Expérience de jeu fluide et complète</li>
+                        <li>Temps de chargement optimisé lors de la connexion</li>
+                    </ul>
+                </div>
+
+                <div class="collection-card">
+                    <h3>🛠️ Mises à jour</h3>
+                    <p>
+                        La collection est mise à jour régulièrement. Si un nouvel addon est ajouté au serveur,
+                        il sera automatiquement ajouté ici afin que tout le monde dispose de la même base.
+                    </p>
+                </div>
+            </div>
+
+            <div class="collection-link-box">
+                <p class="collection-link-text">
+                    Lien officiel de la collection Steam URBAN RP :
+                </p>
+                <!-- Remplace # par l’URL réelle de ta collection Steam -->
+                <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3614541194" target="_blank" class="btn btn-primary-glow collection-link-btn">
+                    <i class="fab fa-steam"></i> Ouvrir la collection sur Steam
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <p class="footer-text">URBAN RP • DarkRP semi-serious</p>
+    </div>
+</footer>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<script>
+    document.body.classList.add('page-enter');
+    window.addEventListener('load', () => {
+        document.body.classList.add('page-enter-active');
+    });
+
+    document.querySelectorAll('a[href]').forEach(link => {
+        const url = new URL(link.href, window.location.href);
+        if (url.origin === window.location.origin) {
+            link.addEventListener('click', (e) => {
+                if (e.button === 1 || e.ctrlKey || e.metaKey) return;
+                if (link.getAttribute('href').startsWith('steam://')) return;
+                e.preventDefault();
+                const href = link.href;
+                document.body.classList.add('page-leave');
+                setTimeout(() => { window.location.href = href; }, 350);
+            });
+        }
+    });
+
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorRing = document.querySelector('.cursor-ring');
+
+    window.addEventListener('mousemove', (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+        cursorDot.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        cursorRing.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    });
+
+    const hoverTargets = document.querySelectorAll('a, button, .btn');
+    hoverTargets.forEach(el => {
+        el.addEventListener('mouseenter', () => cursorRing.classList.add('cursor-ring-hover'));
+        el.addEventListener('mouseleave', () => cursorRing.classList.remove('cursor-ring-hover'));
+    });
+</script>
+
+</body>
+</html>
